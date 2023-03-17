@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BV Dialog </title>
+    <script src="async-dialog.js"></script>
+    <link rel="stylesheet" href="async-dialog.css">
+    <script>
+        async function YNC_Dialog() {
+            var dialog_value = await Dialog.YNC({
+                title: "YNC dialog",
+                message: "Do you want to save changes before closing?",
+                cancel_after: 30
+            });
+            document.querySelector("#ync-dialog-result").innerHTML = dialog_value;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="YNC_Dialog()">YNC dialog</button><br><br>
+    <span id="ync-dialog-result">YNC dialog result</span>
+    <hr>
+    <br><br>
+</body>
+</html>

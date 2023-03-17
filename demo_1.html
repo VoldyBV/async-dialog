@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BV Dialog </title>
+    <script src="async-dialog.js"></script>
+    <link rel="stylesheet" href="async-dialog.css">
+    <script>
+        async function Alert_Dialog() {
+            await Dialog.Alert({
+                title: "Alert dialog",
+                message: "This is one simple alert dialog",
+                cancel_after: 30
+            });
+        }
+        async function Prompt_Dialog() {
+            var name = await Dialog.Prompt({
+                title: "Prompt dialog",
+                message: "Please, enter your name.",
+                placeholder: "John Doe",
+                cancel_after: 30
+            });
+            document.querySelector("#prompt-dialog-result").innerHTML = name;
+        }
+        async function Confirm_Dialog() {
+            var dialog_value = await Dialog.Confirm({
+                title: "Confirm dialog",
+                message: "If you want to proceede, click OK.",
+                cancel_after: 30
+            });
+            document.querySelector("#confirm-dialog-result").innerHTML = dialog_value;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="Alert_Dialog()">Alert dialog</button>
+    <br>
+    <hr>
+    <br><br>
+    <button onclick="Prompt_Dialog()">Prompt dialog</button> <br><br>
+    <span id="prompt-dialog-result">Prompt dialog result</span>
+    <hr>
+    <br><br>
+    <button onclick="Confirm_Dialog()">Confirm dialog</button><br><br>
+    <span id="confirm-dialog-result">Confirm dialog result</span>
+    <hr>
+    <br><br>
+</body>
+</html>

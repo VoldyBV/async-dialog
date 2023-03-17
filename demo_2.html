@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BV Dialog </title>
+    <script src="async-dialog.js"></script>
+    <link rel="stylesheet" href="async-dialog.css">
+    <script>
+        async function SingleOption_1() {
+            var dialog_value = await Dialog.SingleOption({
+                title: "Options as array of string",
+                message: "Choose your gender?.",
+                options: ["Male", "Female", "I don't want to specify"],
+                cancel_after: 30
+            });
+            document.querySelector("#so1").innerHTML = dialog_value;
+        }
+        async function SingleOption_2() {
+            var dialog_value = await Dialog.SingleOption({
+                title: "Options as array of option objects",
+                message: "Choose your gender?.",
+                options: [
+                    {value: "m", text: "Male"},
+                    {value: "f", text: "Female"},
+                    {value: "none", text: "I don't want to specify"}
+                ],
+                cancel_after: 30
+            });
+            document.querySelector("#so2").innerHTML = dialog_value;
+        }
+        async function MultiOption_1() {
+            var dialog_value = await Dialog.MultiOption({
+                title: "Options as array of string",
+                message: "Choose your hobby?.",
+                options: ["Acting", "Cooking", "Bikking", "Singing", "Drawing"],
+                cancel_after: 30
+            });
+            document.querySelector("#mo1").innerHTML = dialog_value;
+        }
+        async function MultiOption_2() {
+            var dialog_value = await Dialog.MultiOption({
+                title: "Options as array of option objects",
+                message: "Choose your gender?.",
+                options: [
+                    {value: "hobby-id-1", text: "Acting"},
+                    {value: "hobby-id-2", text: "Coocking"},
+                    {value: "hobby-id-3", text: "Biking"},
+                    {value: "hobby-id-4", text: "Singing"},
+                    {value: "hobby-id-5", text: "Drawing"}
+                ],
+                cancel_after: 30
+            });
+            document.querySelector("#mo2").innerHTML = dialog_value;
+        }
+    </script>
+</head>
+<body>
+    <h3>SingleOption | options as array of string</h3>
+    <button onclick="SingleOption_1()">Click Me</button> <br><br>
+    <span id="so1">Result</span>
+    <hr>
+    <br><br>
+    <h3>SingleOption | options as array of option objects</h3>
+    <button onclick="SingleOption_2()">Click Me</button> <br><br>
+    <span id="so2">Result</span>
+    <hr>
+    <br><br>
+    <h3>MultiOption | options as array of string</h3>
+    <button onclick="MultiOption_1()">Click Me</button> <br><br>
+    <span id="mo1">Result</span>
+    <hr>
+    <br><br>
+    <h3>MultiOption | options as array of option objects</h3>
+    <button onclick="MultiOption_2()">Click Me</button> <br><br>
+    <span id="mo2">Result</span>
+    <hr>
+    <br><br>
+</body>
+</html>

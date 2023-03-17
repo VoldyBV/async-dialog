@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> BV Dialog </title>
+    <script src="async-dialog.js"></script>
+    <script src="sign-in-dialog.js"></script>
+    <link rel="stylesheet" href="async-dialog.css">
+    <script>
+        async function SignIn() {
+            var dialog_value = await CustomDialogs.SignIn({
+                title: "Sign In dialog",
+                message: "Fill out the form to sign in.",
+                cancel_after: 90
+            });
+            console.log(dialog_value);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="SignIn()">SignIn dialog</button><br><br>
+    <span id="si-dialog-result">Check console for the result </span>
+    <hr>
+    <br><br>
+</body>
+</html>

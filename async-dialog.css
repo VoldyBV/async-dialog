@@ -1,0 +1,193 @@
+async-dialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: var(--overlay-color);
+    backdrop-filter: blur(5px);
+}
+async-dialog {
+    --overlay-color: rgba(0, 0, 0, 0.5);
+    --border: solid black 3px;
+    --header-background-color: #bbb;
+    --header-color: black;
+    --body-background-color: white;
+    --body-color: black;
+    --footer-background-color: #bbb;
+    --footer-color: black;
+    --input-field-focus-color: #0066CC;
+    --input-field-background-color: white;
+    --input-field-border-color: black;
+    --input-field-border-style: solid;
+    --input-field-border-width: 2px;
+}
+async-dialog::part(container){
+    font: inherit;
+    position: relative;
+    min-width: 50vw;
+    min-height: 40vh;
+    height: fit-content;
+    width: fit-content;
+    max-height: 90vh;
+    max-width: 80vw;
+    border: var(--border);
+    box-sizing: border-box;
+    border-radius: 20px;
+    animation-name: dialog-show;
+    animation-duration: 1s;
+}
+async-dialog::part(header) {
+    font: inherit;
+    height: 10vh;
+    width: 100%;
+    background-color: var(--header-background-color);
+    color: var(--header-color);
+    border-radius: 20px 20px 0 0;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bolder;
+}
+async-dialog::part(body) {
+    font: inherit;
+    height: fit-content;
+    width: 100%;
+    max-height: 60vh;
+    max-width: 60vw;
+    box-sizing: border-box;
+    padding: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: var(--body-background-color);
+    color: var(--body-color);
+    overflow: auto;
+}
+async-dialog::part(footer) {
+    font: inherit;
+    height: 10vh;
+    width: 100%;
+    background-color: var(--footer-background-color);
+    color: var(--footer-color);
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+async-dialog [slot=buttons] {
+    font: inherit;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+async-dialog [slot=buttons] button {
+    font: inherit;
+    flex: 1;
+    border-radius: 10px;
+    font-size: 28px;
+    font-weight: bolder;
+    cursor: pointer;
+}
+async-dialog [slot=message] {
+    font: inherit;
+    font-size: inherit;
+}
+async-dialog form[slot=content] {
+    font: inherit;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+async-dialog .dialog-cancel {
+    font: inherit;
+    border: solid black 1px;
+}
+async-dialog .dialog-ok {
+    font: inherit;
+    background-color: #0066CC;
+    border: solid 1px #0066CC;
+    color: white;
+}
+async-dialog .dialog-ok:hover {
+    font: inherit;
+    background-color: #2778c9;
+}
+async-dialog .dialog-no {
+    font: inherit;
+    background-color: #e22222;
+    border: solid 1px #e22222;
+    color: white;
+}
+async-dialog .dialog-no:hover {
+    font: inherit;
+    background-color: hsl(0, 77%, 56%);
+}
+async-dialog .dialog-yes {
+    font: inherit;
+    background-color: #20aa16;
+    border: solid 1px #20aa16;
+    color: white;
+}
+async-dialog .dialog-yes:hover {
+    font: inherit;
+    background-color: rgb(42, 226, 29);
+}
+async-dialog .dialog-input-field, async-dialog .dialog-chekbox-radio{
+    font: inherit;
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 5px;
+}
+async-dialog .dialog-input-field {
+    font: inherit;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+async-dialog .dialog-input-field input {
+    font: inherit;
+    cursor: text;
+    height: 30px;
+    min-width: 30vw;
+    width: 100%;
+    font-size: inherit;
+    background-color: var(--input-field-background-color);
+    border: var(--input-field-border-color) var(--input-field-border-width) var(--input-field-border-style);
+    border-radius: 20px;
+    padding-left: 10px;
+}
+async-dialog .dialog-input-field:focus-within input {
+    outline-color: var(--input-field-focus-color);
+}   
+async-dialog .dialog-input-field:focus-within span {
+    color: var(--input-field-focus-color);
+}   
+async-dialog .dialog-input-field span {
+    align-self: flex-start;
+}
+async-dialog .dialog-chekbox-radio input[type=radio],
+async-dialog .dialog-chekbox-radio input[type=checkbox] {
+    height: 20px;
+    width: 20px;
+}
+async-dialog .dialog-chekbox-radio span {
+    font: inherit;
+}

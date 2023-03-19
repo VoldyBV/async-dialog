@@ -12,33 +12,60 @@ async-dialog {
 }
 async-dialog {
     --overlay-color: rgba(0, 0, 0, 0.5);
-    --border: solid black 3px;
+    --border-style: solid;
+    --border-width: 3px;
+    --border-color: black;
     --header-background-color: #bbb;
     --header-color: black;
     --body-background-color: white;
     --body-color: black;
     --footer-background-color: #bbb;
-    --footer-color: black;
-    --input-field-focus-color: #0066CC;
+    
+    --ok-background-color: #0066cc;
+    --ok-border-style: solid;
+    --ok-border-width: 2px;
+    --ok-border-color: var(--ok-background-color);
+    --ok-color: white;
+    --ok-hover-background-color: #2778c9;
+    
+    --cancel-background-color: white;
+    --cancel-border-style: solid;
+    --cancel-border-width: 2px;
+    --cancel-border-color: var(--cancel-background-color);
+    --cancel-color: black;
+    
+    --yes-background-color: #20aa16;
+    --yes-border-style: solid;
+    --yes-border-width: 2px;
+    --yes-border-color: var(--yes-background-color);
+    --yes-color: white;
+    --yes-hover-background-color: #2ae21d;
+
+    --no-background-color: #e22222;
+    --no-border-style: solid;
+    --no-border-width: 2px;
+    --no-border-color: var(--no-background-color);
+    --no-color: white;
+    --no-hover-background-color: #e53838;
+    
     --input-field-background-color: white;
     --input-field-border-color: black;
-    --input-field-border-style: solid;
     --input-field-border-width: 2px;
+    --input-field-border-style: solid;
+    --input-field-color: black;
+    --input-field-focus: #0066cc;
+    --radio-checkbox-checked: #0066cc;
 }
 async-dialog::part(container){
     font: inherit;
     position: relative;
     min-width: 50vw;
-    min-height: 40vh;
     height: fit-content;
     width: fit-content;
     max-height: 90vh;
     max-width: 80vw;
-    border: var(--border);
-    box-sizing: border-box;
+    border: var(--border-color) var(--border-width) var(--border-style);
     border-radius: 20px;
-    animation-name: dialog-show;
-    animation-duration: 1s;
 }
 async-dialog::part(header) {
     font: inherit;
@@ -46,7 +73,6 @@ async-dialog::part(header) {
     width: 100%;
     background-color: var(--header-background-color);
     color: var(--header-color);
-    border-radius: 20px 20px 0 0;
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -74,9 +100,7 @@ async-dialog::part(footer) {
     font: inherit;
     height: 10vh;
     width: 100%;
-    background-color: var(--footer-background-color);
-    color: var(--footer-color);
-    border-radius: 0 0 20px 20px;
+    background-color: var(--footer-background-color, #bbb);
     display: flex;
     align-items: center;
     box-sizing: border-box;
@@ -101,6 +125,7 @@ async-dialog [slot=buttons] button {
     font-size: 28px;
     font-weight: bolder;
     cursor: pointer;
+    box-sizing: border-box;
 }
 async-dialog [slot=message] {
     font: inherit;
@@ -114,41 +139,77 @@ async-dialog form[slot=content] {
     align-items: center;
     gap: 10px;
 }
-async-dialog .dialog-cancel {
+async-dialog button[dialog-result=cancel] {
     font: inherit;
-    border: solid black 1px;
+    font-weight: bold;
+    font-size: 28px;
+    background-color: var(--cancel-background-color);
+    border-style: var(--cancel-border-style);
+    border-width: var(--cancel-border-width);
+    border-color: var(--cancel-border-color);  
+    color: var(--cancel-color);
 }
-async-dialog .dialog-ok {
+async-dialog button[dialog-result=cancel]:hover {
+    font-size: 28px;
+    background-color: var(--cancel-hover-background-color, var(--cancel-background-color));
+    border-style: var(--cancel-hover-border-style, var(--cancel-border-style));
+    border-width: var(--cancel-hover-border-width, var(--cancel-border-width));
+    border-color: var(--cancel-hover-border-color, var(--cancel-border-color));  
+    color: var(--cancel-hover-color, var(--cancel-color));
+}
+async-dialog button[dialog-result=ok] {
     font: inherit;
-    background-color: #0066CC;
-    border: solid 1px #0066CC;
-    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    background-color: var(--ok-background-color);
+    border-style: var(--ok-border-style);
+    border-width: var(--ok-border-width);
+    border-color: var(--ok-border-color); 
+    color: var(--ok-color);
 }
-async-dialog .dialog-ok:hover {
+async-dialog button[dialog-result=ok]:hover {
+    box-sizing: border-box;
+    background-color: var(--ok-hover-background-color, var(--ok-background-color));
+    border-style: var(--ok-hover-border-style, var(--ok-border-style));
+    border-width: var(--ok-hover-border-width, var(--ok-border-width));
+    border-color: var(--ok-hover-border-color, var(--ok-border-color));  
+    color: var(--ok-hover-color, var(--ok-color));
+}
+async-dialog button[dialog-result=no] {
     font: inherit;
-    background-color: #2778c9;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: var(--no-background-color);
+    border-style: var(--no-border-style);
+    border-width: var(--no-border-width);
+    border-color: var(--no-border-color);
+    color: var(--no-color);
 }
-async-dialog .dialog-no {
+async-dialog button[dialog-result=no]:hover {
+    background-color: var(--no-hover-background-color, var(--no-background-color));
+    border-style: var(--no-hover-border-style, var(--no-border-style));
+    border-width: var(--no-hover-border-width, var(--no-border-width));
+    border-color: var(--no-hover-border-color, var(--no-border-color));
+    color: var(--no-hover-color, var(--no-color));
+}
+async-dialog button[dialog-result=yes] {
     font: inherit;
-    background-color: #e22222;
-    border: solid 1px #e22222;
-    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    background-color: var(--yes-background-color);
+    border-style: var(--yes-border-style);
+    border-width: var(--yes-border-width);
+    border-color: var(--yes-border-color);
+    color: var(--yes-color);
 }
-async-dialog .dialog-no:hover {
-    font: inherit;
-    background-color: hsl(0, 77%, 56%);
+async-dialog button[dialog-result=yes]:hover {
+    background-color: var(--yes-hover-background-color, var(--yes-background-color));
+    border-style: var(--yes-hover-border-style, var(--yes-border-style));
+    border-width: var(--yes-hover-border-width, var(--yes-border-width));
+    border-color: var(--yes-hover-border-color, var(--yes-border-color));
+    color: var(--yes-hover-color, var(--yes-color));
 }
-async-dialog .dialog-yes {
-    font: inherit;
-    background-color: #20aa16;
-    border: solid 1px #20aa16;
-    color: white;
-}
-async-dialog .dialog-yes:hover {
-    font: inherit;
-    background-color: rgb(42, 226, 29);
-}
-async-dialog .dialog-input-field, async-dialog .dialog-chekbox-radio{
+async-dialog .dialog-input-field, async-dialog .dialog-checkbox-radio{
     font: inherit;
     cursor: pointer;
     display: flex;
@@ -161,6 +222,7 @@ async-dialog .dialog-input-field {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    color: black;
 }
 async-dialog .dialog-input-field input {
     font: inherit;
@@ -170,24 +232,64 @@ async-dialog .dialog-input-field input {
     width: 100%;
     font-size: inherit;
     background-color: var(--input-field-background-color);
-    border: var(--input-field-border-color) var(--input-field-border-width) var(--input-field-border-style);
+    border-color: var(--input-field-border-color);
+    border-width: var(--input-field-border-width);
+    border-style: var(--input-field-border-style);
+    color: var(--input-field-color);
     border-radius: 20px;
     padding-left: 10px;
+    outline: none;
 }
 async-dialog .dialog-input-field:focus-within input {
-    outline-color: var(--input-field-focus-color);
+    border-color: var(--input-field-focus);
 }   
 async-dialog .dialog-input-field:focus-within span {
-    color: var(--input-field-focus-color);
+    color: var(--input-field-focus);
 }   
 async-dialog .dialog-input-field span {
     align-self: flex-start;
 }
-async-dialog .dialog-chekbox-radio input[type=radio],
-async-dialog .dialog-chekbox-radio input[type=checkbox] {
+async-dialog .dialog-text {
+    font: inherit;
+    font-weight: bold;
+    width: 100%;
+    text-align: left;
+}
+async-dialog .dialog-checkbox-radio {
+    width: 100%;
+    cursor: pointer;
+}
+async-dialog .dialog-checkbox-radio input[type=radio],
+async-dialog .dialog-checkbox-radio input[type=checkbox] {
     height: 20px;
     width: 20px;
 }
-async-dialog .dialog-chekbox-radio span {
+async-dialog .dialog-checkbox-radio input[type=radio]:checked,
+async-dialog .dialog-checkbox-radio input[type=checkbox]:checked {
+    accent-color: var(--radio-checkbox-checked);
+}
+async-dialog .dialog-checkbox-radio input[type=radio]:checked ~ span,
+async-dialog .dialog-checkbox-radio input[type=checkbox]:checked ~ span {
+    color: var(--radio-checkbox-checked);
+}
+async-dialog .dialog-checkbox-radio input[type=checkbox]:checked::after {
+    color: white;
+}
+async-dialog .dialog-checkbox-radio input[type=radio]:checked::after {
+    color: white;
+}
+async-dialog .dialog-checkbox-radio span {
     font: inherit;
+}
+@keyframes dialog-show {
+    from {
+        max-height: 0;
+        max-width: 0;
+        opacity: 0;
+    }
+    to {
+        max-height: 80vh;
+        max-width: 90vw;
+        opacity: 1;
+    }
 }

@@ -41,17 +41,19 @@ class BVDialog extends HTMLElement {
         this._root.innerHTML += `
             <style>
                 div[part=container] {
-                    position: relative;
                     animation-name: dialog-show;
-                    animation-duration: 0.5s;
+                    animation-duration: 1s;
+                    overflow: hidden;
                 }
                 @keyframes dialog-show {
                     from {
-                        top: -50%;
+                        max-height: 0;
+                        max-width: 0;
                         opacity: 0;
                     }
                     to {
-                        top: 0;
+                        max-height: 80vh;
+                        max-width: 90vw;
                         opacity: 1;
                     }
                 }
@@ -101,6 +103,7 @@ class Dialog {
         
         var final_value = undefined;
         var dialog = document.createElement("async-dialog");
+        dialog.setAttribute("id", "dialog-prompt");
         if(params.cancel_after >= 1){
             setTimeout(() => {
                 dialog.close()
@@ -115,13 +118,13 @@ class Dialog {
                 </label>
             </form>
             <div slot="buttons">
-                <button class="dialog-cancel" dialog-result="Cancel">Cancel</button>
-                <button class="dialog-ok" dialog-result="OK">OK</button>
+                <button dialog-result="cancel">Cancel</button>
+                <button dialog-result="ok">OK</button>
             </div>
         `;
         document.body.append(dialog);
         await dialog.open();
-        if(dialog.dialog_result == "OK") final_value = dialog.dialog_value.prompt_value;
+        if(dialog.dialog_result == "ok") final_value = dialog.dialog_value.prompt_value;
 
         dialog.remove();
 
@@ -132,6 +135,7 @@ class Dialog {
         if(params.message == undefined) params.message = "";
         
         var dialog = document.createElement("async-dialog");
+        dialog.setAttribute("id", "dialog-alert");
         if(params.cancel_after >= 1){
             setTimeout(() => {
                 dialog.close()
@@ -143,7 +147,7 @@ class Dialog {
             <form onsubmit="return false" slot="content">
             </form>
             <div slot="buttons">
-                <button class="dialog-ok" dialog-result="OK">OK</button>
+                <button dialog-result="ok">OK</button>
             </div>
         `;
         document.body.append(dialog);
@@ -155,6 +159,7 @@ class Dialog {
         if(params.message == undefined) params.message = "";
         
         var dialog = document.createElement("async-dialog");
+        dialog.setAttribute("id", "dialog-confirm");
         if(params.cancel_after >= 1){
             setTimeout(() => {
                 dialog.close()
@@ -166,15 +171,15 @@ class Dialog {
             <form onsubmit="return false" slot="content">
             </form>
             <div slot="buttons">
-                <button class="dialog-cancel" dialog-result="Cancel">Cancel</button>
-                <button class="dialog-ok" dialog-result="OK">OK</button>
+                <button dialog-result="cancel">Cancel</button>
+                <button dialog-result="ok">OK</button>
             </div>
         `;
         document.body.append(dialog);
         await dialog.open();
         dialog.remove();
 
-        if(dialog.dialog_result == "OK") return true;
+        if(dialog.dialog_result == "ok") return true;
         else return false;
     }
     static async YNC(params) {
@@ -182,6 +187,7 @@ class Dialog {
         if(params.message == undefined) params.message = "";
         
         var dialog = document.createElement("async-dialog");
+        dialog.setAttribute("id", "dialog-ync");
         
         if(params.cancel_after >= 1){
             setTimeout(() => {
@@ -194,17 +200,17 @@ class Dialog {
             <form onsubmit="return false" slot="content">
             </form>
             <div slot="buttons">
-                <button class="dialog-cancel" dialog-result="Cancel">Cancel</button>
-                <button class="dialog-no" dialog-result="No">No</button>
-                <button class="dialog-yes" dialog-result="Yes">Yes</button>
+                <button dialog-result="cancel">Cancel</button>
+                <button dialog-result="no">No</button>
+                <button dialog-result="yes">Yes</button>
             </div>
         `;
         document.body.append(dialog);
         await dialog.open();
         dialog.remove();
 
-        if(dialog.dialog_result == "Yes") return true;
-        else if(dialog.dialog_result == "No") return false;
+        if(dialog.dialog_result == "yes") return true;
+        else if(dialog.dialog_result == "no") return false;
         
     }
     static async SingleOption(params) {
@@ -212,6 +218,7 @@ class Dialog {
         if(params.message == undefined) params.message = "";
         
         var dialog = document.createElement("async-dialog");
+        dialog.setAttribute("id", "dialog-single-option");
         
         if(params.cancel_after >= 1){
             setTimeout(() => {
@@ -231,7 +238,7 @@ class Dialog {
                 else value = item.value, text = item.text
 
                 dialog_controls += `
-                    <label class="dialog-chekbox-radio">
+                    <label class="dialog-checkbox-radio">
                         <input type="radio" name="singleoption_value" value="${value}">
                         <span>${text}</span>
                     </label>
@@ -245,8 +252,8 @@ class Dialog {
                 ${dialog_controls}
             </form>
             <div slot="buttons">
-                <button class="dialog-cancel" dialog-result="Cancel">Cancel</button>
-                <button class="dialog-ok" dialog-result="OK">OK</button>
+                <button dialog-result="cancel">Cancel</button>
+                <button dialog-result="ok">OK</button>
             </div>
         `;
         document.body.append(dialog);
@@ -254,7 +261,7 @@ class Dialog {
         await dialog.open();
         dialog.remove();
 
-        if(dialog.dialog_result == "OK") return dialog.dialog_value.singleoption_value;
+        if(dialog.dialog_result == "ok") return dialog.dialog_value.singleoption_value;
         else return undefined;
         
     }
@@ -263,6 +270,7 @@ class Dialog {
         if(params.message == undefined) params.message = "";
         
         var dialog = document.createElement("async-dialog");
+        dialog.setAttribute("id", "dialog-multi-option");
         
         if(params.cancel_after >= 1){
             setTimeout(() => {
@@ -281,7 +289,7 @@ class Dialog {
                 else value = item.value, text = item.text
 
                 dialog_controls += `
-                    <label class="dialog-chekbox-radio">
+                    <label class="dialog-checkbox-radio">
                         <input type="checkbox" name="multioption_value" value="${value}">
                         <span>${text}</span>
                     </label>
@@ -295,8 +303,8 @@ class Dialog {
                 ${dialog_controls}
             </form>
             <div slot="buttons">
-                <button class="dialog-cancel" dialog-result="Cancel">Cancel</button>
-                <button class="dialog-ok" dialog-result="OK">OK</button>
+                <button dialog-result="cancel">Cancel</button>
+                <button dialog-result="ok">OK</button>
             </div>
         `;
         document.body.append(dialog);
@@ -304,7 +312,7 @@ class Dialog {
         await dialog.open();
         dialog.remove();
 
-        if(dialog.dialog_result == "OK") return dialog.dialog_value.multioption_value;
+        if(dialog.dialog_result == "ok") return dialog.dialog_value.multioption_value;
         else return undefined;
         
     }

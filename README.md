@@ -213,7 +213,7 @@ Write code for dialog, and then add *title* and *message* to dialog.
 ```javascript
 //Write code for dialog element
 var dialog = new DOMParser().parseFromString(`
-    <async-dialog id="dialog-SignIn">
+    <async-dialog id="dialog-sign-in">
         <div slot="title"></div>
         <div slot="message"></div>
         <form onsubmit="return false" slot="content">
@@ -343,3 +343,439 @@ Property *dialog_result* is text that helps you to determine which button user h
 ***
 
 # Applying CSS to dialogs
+
+Asynchronous dialogs allows you to change style of dialogs. It comes with various custom properties and classes to help you. <br>
+
+## Custom properties
+
+There are many custom properties. We devided them in several categories. And we will explain each one of them.
+
+### Dialog
+These custom properties directly affet dialogs.
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--overlay-color</th>
+        <td>rgba(0, 0, 0, 0.5)</td>
+        <td>dialog backdrop color</td>
+    </tr>
+    <tr>
+        <th>--border-style</th>
+        <td>solid</td>
+        <td>dialog border style</td>
+    </tr>
+    <tr>
+        <th>--border-width</th>
+        <td>3px</td>
+        <td>dialog border width</td>
+    </tr>
+    <tr>
+        <th>--border-color</th>
+        <td>black</td>
+        <td>dialog border color</td>
+    </tr>
+</table>
+
+### Header, body and footer
+These properties help you to style header, body and footer of dialog
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--header-background-color</th>
+        <td>#bbb</td>
+        <td>changes background color of dialog's header</td>
+    </tr>
+    <tr>
+        <th>--header-color</th>
+        <td>black</td>
+        <td>changes font color of dialog's header</td>
+    </tr>
+    <tr>
+        <th>--body-background-color</th>
+        <td>white</td>
+        <td>changes background color of dialog's body</td>
+    </tr>
+    <tr>
+        <th>--body-color</th>
+        <td>black</td>
+        <td>changes font color of dialog's body</td>
+    </tr>
+    <tr>
+        <th>--footer-background-color</th>
+        <td>#bbb</td>
+        <td>changes background color of dialog's footer</td>
+    </tr>
+</table>
+
+### OK dialog button
+These properties will help you to style button which value of *dialog-result* attribbute is equal to **ok**.
+    <table>
+        <tr>
+            <th>Custom property</th>
+            <td>Initial value</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <th>--ok-background-color</th>
+            <td>#0066cc</td>
+            <td>changes the background color of the button </td>
+        </tr>
+        <tr>
+            <th>--ok-border-style</th>
+            <td>solid</td>
+            <td>changes the border style of the button </td>
+        </tr>
+        <tr>
+            <th>--ok-border-width</th>
+            <td>2px</td>
+            <td>changes the background width of the button </td>
+        </tr>
+        <tr>
+            <th>--ok-border-color</th>
+            <td>value of --ok-background-color</td>
+            <td>changes the border color of the button </td>
+        </tr>
+        <tr>
+            <th>--ok-color</th>
+            <td>white</td>
+            <td>changes the font color of the button </td>
+        </tr>
+        <tr>
+            <th>--ok-hover-background-color</th>
+            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect are applied on hover. </td>
+        </tr>
+        <tr>
+            <th>--ok-hover-border-style</th>
+        </tr>
+        <tr>
+            <th>--ok-hover-border-width</th>
+        </tr>
+        <tr>
+            <th>--ok-hover-border-color</th>
+        </tr>
+        <tr>
+            <th>--ok-hover-color</th>
+        </tr>
+    </table>
+
+
+### Cancel dialog button
+These properties will help you to style button which value of *dialog-result* attribbute is equal to **cancel**.
+    <table>
+        <tr>
+            <th>Custom property</th>
+            <td>Initial value</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <th>--cancel-background-color</th>
+            <td>white</td>
+            <td>changes the background color of the button </td>
+        </tr>
+        <tr>
+            <th>--cancel-border-style</th>
+            <td>solid</td>
+            <td>changes the border style of the button </td>
+        </tr>
+        <tr>
+            <th>--cancel-border-width</th>
+            <td>2px</td>
+            <td>changes the background width of the button </td>
+        </tr>
+        <tr>
+            <th>--cancel-border-color</th>
+            <td>value of --cancel-background-color</td>
+            <td>changes the border color of the button </td>
+        </tr>
+        <tr>
+            <th>--cancel-color</th>
+            <td>black</td>
+            <td>changes the font color of the button </td>
+        </tr>
+        <tr>
+            <th>--cancel-hover-background-color</th>
+            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
+        </tr>
+        <tr>
+            <th>--cancel-hover-border-style</th>
+        </tr>
+        <tr>
+            <th>--cancel-hover-border-width</th>
+        </tr>
+        <tr>
+            <th>--cancel-hover-border-color</th>
+        </tr>
+        <tr>
+            <th>--cancel-hover-color</th>
+        </tr>
+    </table>
+
+### Yes dialog button
+These properties will help you to style button which value of *dialog-result* attribbute is equal to **yes**.
+    <table>
+        <tr>
+            <th>Custom property</th>
+            <td>Initial value</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <th>--yes-background-color</th>
+            <td>#20aa16</td>
+            <td>changes the background color of the button </td>
+        </tr>
+        <tr>
+            <th>--yes-border-style</th>
+            <td>solid</td>
+            <td>changes the border style of the button </td>
+        </tr>
+        <tr>
+            <th>--yes-border-width</th>
+            <td>2px</td>
+            <td>changes the background width of the button </td>
+        </tr>
+        <tr>
+            <th>--yes-border-color</th>
+            <td>value of --yes-background-color</td>
+            <td>changes the border color of the button </td>
+        </tr>
+        <tr>
+            <th>--yes-color</th>
+            <td>white</td>
+            <td>changes the font color of the button </td>
+        </tr>
+        <tr>
+            <th>--yes-hover-background-color</th>
+            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
+        </tr>
+        <tr>
+            <th>--yes-hover-border-style</th>
+        </tr>
+        <tr>
+            <th>--yes-hover-border-width</th>
+        </tr>
+        <tr>
+            <th>--yes-hover-border-color</th>
+        </tr>
+        <tr>
+            <th>--yes-hover-color</th>
+        </tr>
+    </table>
+
+### No dialog button
+These properties will help you to style button which value of *dialog-result* attribbute is equal to **no**.
+    <table>
+        <tr>
+            <th>Custom property</th>
+            <td>Initial value</td>
+            <td>Description</td>
+        </tr>
+        <tr>
+            <th>--no-background-color</th>
+            <td>#e22222</td>
+            <td>changes the background color of the button </td>
+        </tr>
+        <tr>
+            <th>--no-border-style</th>
+            <td>solid</td>
+            <td>changes the border style of the button </td>
+        </tr>
+        <tr>
+            <th>--no-border-width</th>
+            <td>2px</td>
+            <td>changes the background width of the button </td>
+        </tr>
+        <tr>
+            <th>--no-border-color</th>
+            <td>value of --no-background-color</td>
+            <td>changes the border color of the button </td>
+        </tr>
+        <tr>
+            <th>--no-color</th>
+            <td>white</td>
+            <td>changes the font color of the button </td>
+        </tr>
+        <tr>
+            <th>--no-hover-background-color</th>
+            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
+        </tr>
+        <tr>
+            <th>--no-hover-border-style</th>
+        </tr>
+        <tr>
+            <th>--no-hover-border-width</th>
+        </tr>
+        <tr>
+            <th>--no-hover-border-color</th>
+        </tr>
+        <tr>
+            <th>--no-hover-color</th>
+        </tr>
+    </table>
+
+## Css classes
+There are 3 classes that this library provides you with. These help you to build elements for dialog. **You do not have to use them. You can add your own classes when building dialog's content.**
+<table>
+    <tr>
+        <th>Class name</th>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>dialog-input-field</th>
+        <td>Helps you to style label with span and input elements</td>
+    </tr>
+    <tr>
+        <th>dialog-checkbox-radio</th>
+        <td>Helps you to style label with span and input type radio/checkbox elements</td>
+    </tr>
+    <tr>
+        <th>dialog-text</th>
+        <td>Helps you to style label with some text in it</td>
+    </tr>
+</table>
+Also there are 5 custom properties that will help you change design of elements with these classes.
+
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--input-field-background-color</th>
+        <td>white</td>
+        <td>changes the background color of the input element </td>
+    </tr>
+    <tr>
+        <th>--input-field-border-style</th>
+        <td>solid</td>
+        <td>changes the border style of the input element </td>
+    </tr>
+    <tr>
+        <th>--input-field-border-width</th>
+        <td>2px</td>
+        <td>changes the background width of the input element </td>
+    </tr>
+    <tr>
+        <th>--input-field-border-color</th>
+        <td>black</td>
+        <td>changes the border color of the input element </td>
+    </tr>
+    <tr>
+    <tr>
+        <th>--input-filed-focus</th>
+        <td>#0066cc</td>
+        <td>when input element is focused, change its border color and font color of text above it </td>
+    </tr>
+        <th>--radio-checkbox-checked</th>
+        <td>#0066cc</td>
+        <td>when radiobutton/checkbox color is checked, change its background color and font color of text next to it. </td>
+    </tr>
+</table>
+
+## Designing native and custom dialogs
+Now, we'll show you how to design library's native dialogs and custom dialogs. Every dialog has its unique id and you use it to change style of our dialogs. In the code below you can see how to do that.
+```css
+/* Alert dialog */
+#dialog-alert {
+    --border-color: #D0342C;
+    --header-background-color: #D0342C;
+    --header-color: white;
+    --footer-background-color: white;
+    --ok-background-color: #D0342C;
+    --ok-hover-background-color: #d74942;
+}
+
+/* Prompt dialog */
+#dialog-prompt {
+    --border-color: #7fba00;
+    --header-background-color: #7fba00;
+    --header-color: white;
+    --footer-background-color: white;
+    --ok-background-color: #7fba00;
+    --ok-hover-background-color: hsl(79, 100%, 45%);
+    --cancel-background-color: rgb(200, 200, 200);
+    --cancel-hover-background-color: #fff;
+    --input-field-border-color: rgb(200,200,200);
+    --input-field-focus: #7fba00;
+}
+
+/* Confirm dialog */
+#dialog-confirm {
+    --border-color: #00a4ef;
+    --header-background-color: #00a4ef;
+    --header-color: white;
+    --footer-background-color: white;
+    --ok-background-color: #00a4ef;
+    --ok-hover-background-color: #14b5ff;
+    --cancel-background-color: rgb(200, 200, 200);
+    --cancel-hover-background-color: #fff;
+}
+
+/* SingleOption dialog */
+#dialog-single-option {
+    --border-color: #f25022;
+    --header-background-color: #f25022;
+    --header-color: white;
+    --footer-background-color: white;
+    --ok-background-color: #f25022;
+    --ok-hover-background-color: hsl(13, 89%, 60%);
+    --cancel-background-color: rgb(200, 200, 200);
+    --cancel-hover-background-color: #fff;
+    --radio-checkbox-checked: #f25022;
+}
+
+/* MultiOption dialog */
+#dialog-multi-option {
+    --border-color: #000;
+    --header-background-color: #000;
+    --header-color: white;
+    --footer-background-color: white;
+    --ok-background-color: #000;
+    --ok-hover-background-color: #fff;
+    --ok-hover-border-color: black;
+    --ok-hover-color: black;
+    --cancel-background-color: rgb(200, 200, 200);
+    --cancel-hover-background-color: #fff;
+    --radio-checkbox-checked: #000;
+}
+
+/* MultiOption dialog */
+#dialog-ync {
+    --border-color: #7066e0;
+    --header-background-color: #7066e0;
+    --header-color: white;
+    --footer-background-color: white;
+    --yes-background-color: #7666e0;
+    --yes-hover-background-color: hsl(245, 66%, 70%);
+    --cancel-background-color: rgb(200, 200, 200);
+    --cancel-hover-background-color: #fff;
+}
+
+/* SignIn dialog */
+#dialog-sign-in {
+    --border-color: #ffb900;
+    --header-background-color: #ffb900;
+    --header-color: white;
+    --footer-background-color: white;
+    --ok-background-color: #ffb900;
+    --ok-hover-background-color: hsl(44, 100%, 55%);
+    --cancel-background-color: rgb(200, 200, 200);
+    --cancel-hover-background-color: #fff;
+    --input-field-border-color: rgb(200, 200, 200);
+    --input-field-focus: #ffb900;
+    --radio-checkbox-checked: #ffb900;
+}
+```
+[See how this works](https://voldybv.github.io/async-dialog/demo_5.html)

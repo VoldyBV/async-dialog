@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async Dialogs</title>
+    <script src="async-dialog.js"></script>
+    <script src="sign-in-dialog.js"></script>
+    <link rel="stylesheet" href="async-dialog.css">
+    <script>
+        async function Alert_Dialog() {
+            await Dialog.Alert({
+                title: "Alert dialog",
+                message: "This is one simple alert dialog",
+                cancel_after: 60
+            });
+        }
+        async function Prompt_Dialog() {
+            var dialog_value = await Dialog.Prompt({
+                title: "Prompt dialog",
+                message: "Please, enter your name.",
+                placeholder: "John Doe",
+                cancel_after: 60
+            });
+            console.log("Prompt dialog: \n\t" + dialog_value);
+        }
+        async function Confirm_Dialog() {
+            var dialog_value = await Dialog.Confirm({
+                title: "Confirm dialog",
+                message: "If you want to proceede, click OK.",
+                cancel_after: 60
+            });
+            console.log("Confirm dialog: \n\t" + dialog_value);
+        }
+        async function SingleOption() {
+            var dialog_value = await Dialog.SingleOption({
+                title: "Options as array of option objects",
+                message: "Choose your gender?.",
+                options: ["Male", "Female", "I don't want to specify"],
+                cancel_after: 60
+            });
+            console.log("SingleOption dialog: \n\t" + dialog_value)
+        }
+        async function MultiOption() {
+            var dialog_value = await Dialog.MultiOption({
+                title: "Options as array of option objects",
+                message: "Choose your gender?.",
+                options: ["Acting", "Cooking", "Bikking", "Singing", "Drawing"],
+                cancel_after: 60
+            });
+            console.log("MultiOption dialog:\n\t" + dialog_value)
+        }
+        async function YNC_Dialog() {
+            var dialog_value = await Dialog.YNC({
+                title: "YNC dialog",
+                message: "Do you want to save changes before closing?",
+                cancel_after: 60
+            });
+            console.log("YNC dialog:\n\t" + dialog_value);
+        }
+        async function SignIn() {
+            var dialog_value = await CustomDialogs.SignIn({
+                title: "Sign In dialog",
+                message: "Fill out the form to sign in.",
+                cancel_after: 90
+            });
+            console.log("SignIn dialog:\n\t");
+            console.log(dialog_value);
+        }
+    </script>
+    <style>
+        /* Alert dialog */
+        #dialog-alert {
+            --border-color: #D0342C;
+            --header-background-color: #D0342C;
+            --header-color: white;
+            --footer-background-color: white;
+            --ok-background-color: #D0342C;
+            --ok-hover-background-color: #d74942;
+        }
+
+        /* Prompt dialog */
+        #dialog-prompt {
+            --border-color: #7fba00;
+            --header-background-color: #7fba00;
+            --header-color: white;
+            --footer-background-color: white;
+            --ok-background-color: #7fba00;
+            --ok-hover-background-color: hsl(79, 100%, 45%);
+            --cancel-background-color: rgb(200, 200, 200);
+            --cancel-hover-background-color: #fff;
+            --input-field-border-color: rgb(200,200,200);
+            --input-field-focus: #7fba00;
+        }
+
+        /* Confirm dialog */
+        #dialog-confirm {
+            --border-color: #00a4ef;
+            --header-background-color: #00a4ef;
+            --header-color: white;
+            --footer-background-color: white;
+            --ok-background-color: #00a4ef;
+            --ok-hover-background-color: #14b5ff;
+            --cancel-background-color: rgb(200, 200, 200);
+            --cancel-hover-background-color: #fff;
+        }
+
+        /* SingleOption dialog */
+        #dialog-single-option {
+            --border-color: #f25022;
+            --header-background-color: #f25022;
+            --header-color: white;
+            --footer-background-color: white;
+            --ok-background-color: #f25022;
+            --ok-hover-background-color: hsl(13, 89%, 60%);
+            --cancel-background-color: rgb(200, 200, 200);
+            --cancel-hover-background-color: #fff;
+            --radio-checkbox-checked: #f25022;
+        }
+
+        /* MultiOption dialog */
+        #dialog-multi-option {
+            --border-color: #000;
+            --header-background-color: #000;
+            --header-color: white;
+            --footer-background-color: white;
+            --ok-background-color: #000;
+            --ok-hover-background-color: #fff;
+            --ok-hover-border-color: black;
+            --ok-hover-color: black;
+            --cancel-background-color: rgb(200, 200, 200);
+            --cancel-hover-background-color: #fff;
+            --radio-checkbox-checked: #000;
+        }
+
+        /* MultiOption dialog */
+        #dialog-ync {
+            --border-color: #7066e0;
+            --header-background-color: #7066e0;
+            --header-color: white;
+            --footer-background-color: white;
+            --yes-background-color: #7666e0;
+            --yes-hover-background-color: hsl(245, 66%, 70%);
+            --cancel-background-color: rgb(200, 200, 200);
+            --cancel-hover-background-color: #fff;
+        }
+
+        /* SignIn dialog */
+        #dialog-sign-in {
+            --border-color: #ffb900;
+            --header-background-color: #ffb900;
+            --header-color: white;
+            --footer-background-color: white;
+            --ok-background-color: #ffb900;
+            --ok-hover-background-color: hsl(44, 100%, 55%);
+            --cancel-background-color: rgb(200, 200, 200);
+            --cancel-hover-background-color: #fff;
+            --input-field-border-color: rgb(200, 200, 200);
+            --input-field-focus: #ffb900;
+            --radio-checkbox-checked: #ffb900;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="Alert_Dialog()">Alert dialog</button> <br><br>
+    <button onclick="Prompt_Dialog()">Prompt dialog</button> <br><br>
+    <button onclick="Confirm_Dialog()">Confirm dialog</button><br><br>
+    <button onclick="SingleOption()">SingleOption dialog</button><br><br>
+    <button onclick="MultiOption()">MultiOption dialog</button><br><br>
+    <button onclick="YNC_Dialog()">YNC dialog</button><br><br>
+    <button onclick="SignIn()">SignIn dialog</button><br><br>
+
+    <br><br><br>
+    Check the console...
+</body>
+</html>

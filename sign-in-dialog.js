@@ -10,7 +10,7 @@ CustomDialogs.SignIn = async function(params) {
 
     //Write code for dialog element
     var dialog = new DOMParser().parseFromString(`
-        <async-dialog id="dialog-SignIn">
+        <async-dialog id="dialog-sign-in">
             <div slot="title"></div>
             <div slot="message"></div>
             <form onsubmit="return false" slot="content">
@@ -42,12 +42,34 @@ CustomDialogs.SignIn = async function(params) {
             <span>Enter your birthdate</span>
             <input type="date" name="birthdate">
         </label>
+        <label class="dialog-text"> Choose your gender </label>
+        <label class="dialog-checkbox-radio">
+            <input type="radio" value="male" name="gender">
+            <span>Male</span>
+        </label>
+        <label class="dialog-checkbox-radio">
+            <input type="radio" value="female" name="gender">
+            <span>Female</span>
+        </label>
+        <label class="dialog-text"> Choose your favourite hobby </label>
+        <label class="dialog-checkbox-radio">
+            <input type="checkbox" value="acting" name="hobby">
+            <span>acting</span>
+        </label>
+        <label class="dialog-checkbox-radio">
+            <input type="checkbox" value="cooking" name="hobby">
+            <span>cooking</span>
+        </label>
+        <label class="dialog-checkbox-radio">
+            <input type="checkbox" value="singing" name="hobby">
+            <span>singing</span>
+        </label>
     `;
 
     //Add dialog buttons to dialog
     dialog.querySelector("div[slot=buttons]").innerHTML = `
-        <button class="dialog-cancel" dialog-result="Cancel">Cancel</button>
-        <button class="dialog-ok" dialog-result="OK">Sign In</button>
+        <button dialog-result="cancel">Cancel</button>
+        <button dialog-result="ok">Sign In</button>
     `;
 
     //Set the time afte dialog will autocancel
@@ -67,6 +89,6 @@ CustomDialogs.SignIn = async function(params) {
     dialog.remove();
 
     //Define on which dialog result the dialog will return a value
-    if(dialog.dialog_result == "OK") return dialog.dialog_value;
+    if(dialog.dialog_result == "ok") return dialog.dialog_value;
     else return undefined;
 }

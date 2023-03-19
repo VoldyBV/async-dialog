@@ -1,4 +1,6 @@
-# Asynchronous dialogs
+**Table of contents**
+* TOC
+{:toc}
 **Asynchronous dialogs** is a vanilla javascript library which main purpose is to create and use modal dialogs. This library works with asynchronous code and uses **async**, **await** and **promises** to give you old-school modal dialog experience. This library defines a web component (async-dialog, which will be important later) and comes with 6 modal dialogs.
 
 ***

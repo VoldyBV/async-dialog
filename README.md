@@ -470,55 +470,55 @@ These properties will help you to style button which value of *dialog-result* at
 
 ### Cancel dialog button
 These properties will help you to style button which value of *dialog-result* attribbute is equal to **cancel**.
-    <table>
-        <tr>
-            <th>Custom property</th>
-            <td>Initial value</td>
-            <td>Description</td>
-        </tr>
-        <tr>
-            <th>--cancel-background-color</th>
-            <td>white</td>
-            <td>changes the background color of the button </td>
-        </tr>
-        <tr>
-            <th>--cancel-border-style</th>
-            <td>solid</td>
-            <td>changes the border style of the button </td>
-        </tr>
-        <tr>
-            <th>--cancel-border-width</th>
-            <td>2px</td>
-            <td>changes the background width of the button </td>
-        </tr>
-        <tr>
-            <th>--cancel-border-color</th>
-            <td>value of --cancel-background-color</td>
-            <td>changes the border color of the button </td>
-        </tr>
-        <tr>
-            <th>--cancel-color</th>
-            <td>black</td>
-            <td>changes the font color of the button </td>
-        </tr>
-        <tr>
-            <th>--cancel-hover-background-color</th>
-            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
-            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
-        </tr>
-        <tr>
-            <th>--cancel-hover-border-style</th>
-        </tr>
-        <tr>
-            <th>--cancel-hover-border-width</th>
-        </tr>
-        <tr>
-            <th>--cancel-hover-border-color</th>
-        </tr>
-        <tr>
-            <th>--cancel-hover-color</th>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--cancel-background-color</th>
+        <td>white</td>
+        <td>changes the background color of the button </td>
+    </tr>
+    <tr>
+        <th>--cancel-border-style</th>
+        <td>solid</td>
+        <td>changes the border style of the button </td>
+    </tr>
+    <tr>
+        <th>--cancel-border-width</th>
+        <td>2px</td>
+        <td>changes the background width of the button </td>
+    </tr>
+    <tr>
+        <th>--cancel-border-color</th>
+        <td>value of --cancel-background-color</td>
+        <td>changes the border color of the button </td>
+    </tr>
+    <tr>
+        <th>--cancel-color</th>
+        <td>black</td>
+        <td>changes the font color of the button </td>
+    </tr>
+    <tr>
+        <th>--cancel-hover-background-color</th>
+        <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+        <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
+    </tr>
+    <tr>
+        <th>--cancel-hover-border-style</th>
+    </tr>
+    <tr>
+        <th>--cancel-hover-border-width</th>
+    </tr>
+    <tr>
+        <th>--cancel-hover-border-color</th>
+    </tr>
+    <tr>
+        <th>--cancel-hover-color</th>
+    </tr>
+</table>
 
 ### Yes dialog button
 These properties will help you to style button which value of *dialog-result* attribbute is equal to **yes**.

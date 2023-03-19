@@ -417,55 +417,55 @@ These properties help you to style header, body and footer of dialog
 
 ### OK dialog button
 These properties will help you to style button which value of *dialog-result* attribbute is equal to **ok**.
-    <table>
-        <tr>
-            <th>Custom property</th>
-            <td>Initial value</td>
-            <td>Description</td>
-        </tr>
-        <tr>
-            <th>--ok-background-color</th>
-            <td>#0066cc</td>
-            <td>changes the background color of the button </td>
-        </tr>
-        <tr>
-            <th>--ok-border-style</th>
-            <td>solid</td>
-            <td>changes the border style of the button </td>
-        </tr>
-        <tr>
-            <th>--ok-border-width</th>
-            <td>2px</td>
-            <td>changes the background width of the button </td>
-        </tr>
-        <tr>
-            <th>--ok-border-color</th>
-            <td>value of --ok-background-color</td>
-            <td>changes the border color of the button </td>
-        </tr>
-        <tr>
-            <th>--ok-color</th>
-            <td>white</td>
-            <td>changes the font color of the button </td>
-        </tr>
-        <tr>
-            <th>--ok-hover-background-color</th>
-            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
-            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect are applied on hover. </td>
-        </tr>
-        <tr>
-            <th>--ok-hover-border-style</th>
-        </tr>
-        <tr>
-            <th>--ok-hover-border-width</th>
-        </tr>
-        <tr>
-            <th>--ok-hover-border-color</th>
-        </tr>
-        <tr>
-            <th>--ok-hover-color</th>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--ok-background-color</th>
+        <td>#0066cc</td>
+        <td>changes the background color of the button </td>
+    </tr>
+    <tr>
+        <th>--ok-border-style</th>
+        <td>solid</td>
+        <td>changes the border style of the button </td>
+    </tr>
+    <tr>
+        <th>--ok-border-width</th>
+        <td>2px</td>
+        <td>changes the background width of the button </td>
+    </tr>
+    <tr>
+        <th>--ok-border-color</th>
+        <td>value of --ok-background-color</td>
+        <td>changes the border color of the button </td>
+    </tr>
+    <tr>
+        <th>--ok-color</th>
+        <td>white</td>
+        <td>changes the font color of the button </td>
+    </tr>
+    <tr>
+        <th>--ok-hover-background-color</th>
+        <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+        <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect are applied on hover. </td>
+    </tr>
+    <tr>
+        <th>--ok-hover-border-style</th>
+    </tr>
+    <tr>
+        <th>--ok-hover-border-width</th>
+    </tr>
+    <tr>
+        <th>--ok-hover-border-color</th>
+    </tr>
+    <tr>
+        <th>--ok-hover-color</th>
+    </tr>
+</table>
 
 
 ### Cancel dialog button
@@ -522,107 +522,107 @@ These properties will help you to style button which value of *dialog-result* at
 
 ### Yes dialog button
 These properties will help you to style button which value of *dialog-result* attribbute is equal to **yes**.
-    <table>
-        <tr>
-            <th>Custom property</th>
-            <td>Initial value</td>
-            <td>Description</td>
-        </tr>
-        <tr>
-            <th>--yes-background-color</th>
-            <td>#20aa16</td>
-            <td>changes the background color of the button </td>
-        </tr>
-        <tr>
-            <th>--yes-border-style</th>
-            <td>solid</td>
-            <td>changes the border style of the button </td>
-        </tr>
-        <tr>
-            <th>--yes-border-width</th>
-            <td>2px</td>
-            <td>changes the background width of the button </td>
-        </tr>
-        <tr>
-            <th>--yes-border-color</th>
-            <td>value of --yes-background-color</td>
-            <td>changes the border color of the button </td>
-        </tr>
-        <tr>
-            <th>--yes-color</th>
-            <td>white</td>
-            <td>changes the font color of the button </td>
-        </tr>
-        <tr>
-            <th>--yes-hover-background-color</th>
-            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
-            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
-        </tr>
-        <tr>
-            <th>--yes-hover-border-style</th>
-        </tr>
-        <tr>
-            <th>--yes-hover-border-width</th>
-        </tr>
-        <tr>
-            <th>--yes-hover-border-color</th>
-        </tr>
-        <tr>
-            <th>--yes-hover-color</th>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--yes-background-color</th>
+        <td>#20aa16</td>
+        <td>changes the background color of the button </td>
+    </tr>
+    <tr>
+        <th>--yes-border-style</th>
+        <td>solid</td>
+        <td>changes the border style of the button </td>
+    </tr>
+    <tr>
+        <th>--yes-border-width</th>
+        <td>2px</td>
+        <td>changes the background width of the button </td>
+    </tr>
+    <tr>
+        <th>--yes-border-color</th>
+        <td>value of --yes-background-color</td>
+        <td>changes the border color of the button </td>
+    </tr>
+    <tr>
+        <th>--yes-color</th>
+        <td>white</td>
+        <td>changes the font color of the button </td>
+    </tr>
+    <tr>
+        <th>--yes-hover-background-color</th>
+        <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+        <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
+    </tr>
+    <tr>
+        <th>--yes-hover-border-style</th>
+    </tr>
+    <tr>
+        <th>--yes-hover-border-width</th>
+    </tr>
+    <tr>
+        <th>--yes-hover-border-color</th>
+    </tr>
+    <tr>
+        <th>--yes-hover-color</th>
+    </tr>
+</table>
 
 ### No dialog button
 These properties will help you to style button which value of *dialog-result* attribbute is equal to **no**.
-    <table>
-        <tr>
-            <th>Custom property</th>
-            <td>Initial value</td>
-            <td>Description</td>
-        </tr>
-        <tr>
-            <th>--no-background-color</th>
-            <td>#e22222</td>
-            <td>changes the background color of the button </td>
-        </tr>
-        <tr>
-            <th>--no-border-style</th>
-            <td>solid</td>
-            <td>changes the border style of the button </td>
-        </tr>
-        <tr>
-            <th>--no-border-width</th>
-            <td>2px</td>
-            <td>changes the background width of the button </td>
-        </tr>
-        <tr>
-            <th>--no-border-color</th>
-            <td>value of --no-background-color</td>
-            <td>changes the border color of the button </td>
-        </tr>
-        <tr>
-            <th>--no-color</th>
-            <td>white</td>
-            <td>changes the font color of the button </td>
-        </tr>
-        <tr>
-            <th>--no-hover-background-color</th>
-            <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
-            <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
-        </tr>
-        <tr>
-            <th>--no-hover-border-style</th>
-        </tr>
-        <tr>
-            <th>--no-hover-border-width</th>
-        </tr>
-        <tr>
-            <th>--no-hover-border-color</th>
-        </tr>
-        <tr>
-            <th>--no-hover-color</th>
-        </tr>
-    </table>
+<table>
+    <tr>
+        <th>Custom property</th>
+        <td>Initial value</td>
+        <td>Description</td>
+    </tr>
+    <tr>
+        <th>--no-background-color</th>
+        <td>#e22222</td>
+        <td>changes the background color of the button </td>
+    </tr>
+    <tr>
+        <th>--no-border-style</th>
+        <td>solid</td>
+        <td>changes the border style of the button </td>
+    </tr>
+    <tr>
+        <th>--no-border-width</th>
+        <td>2px</td>
+        <td>changes the background width of the button </td>
+    </tr>
+    <tr>
+        <th>--no-border-color</th>
+        <td>value of --no-background-color</td>
+        <td>changes the border color of the button </td>
+    </tr>
+    <tr>
+        <th>--no-color</th>
+        <td>white</td>
+        <td>changes the font color of the button </td>
+    </tr>
+    <tr>
+        <th>--no-hover-background-color</th>
+        <td rowspan=5>As an initial value, these 5 have values of corresponding previous properties</td>
+        <td rowspan="5"> these 5 have the exact same effect as previous 5, but their effect is applied on hover. </td>
+    </tr>
+    <tr>
+        <th>--no-hover-border-style</th>
+    </tr>
+    <tr>
+        <th>--no-hover-border-width</th>
+    </tr>
+    <tr>
+        <th>--no-hover-border-color</th>
+    </tr>
+    <tr>
+        <th>--no-hover-color</th>
+    </tr>
+</table>
 
 ## Css classes
 There are 3 classes that this library provides you with. These help you to build elements for dialog. **You do not have to use them. You can add your own classes when building dialog's content.**
